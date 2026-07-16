@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday to the Sharpest Barber!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-weight/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --primary-gold: #d4af37;
+            --accent-red: #e63946;
+            --accent-blue: #457b9d;
+            --text-light: #f5f5f5;
+            --text-muted: #aaa;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='6' cy='6' r='3'%3E%3C/circle%3E%3Ccircle cx='6' cy='18' r='3'%3E%3C/circle%3E%3Cline x1='20' y1='4' x2='8.12' y2='15.88'%3E%3C/line%3E%3Cline x1='14.47' y1='14.48' x2='20' y2='20'%3E%3C/line%3E%3Cline x1='8.12' y1='8.12' x2='12' y2='12'%3E%3C/line%3E%3C/svg%3E"), auto;
+        }
+
+        /* Barber Pole Top Accent */
+        .barber-pole-border {
+            width: 100%;
+            height: 10px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                var(--accent-red),
+                var(--accent-red) 20px,
+                #fff 20px,
+                #fff 40px,
+                var(--accent-blue) 40px,
+                var(--accent-blue) 60px,
+                #fff 60px,
+                #fff 80px
+            );
+            animation: movePole 4s linear infinite;
+            z-index: 100;
+        }
+
+        @keyframes movePole {
+            0% { background-position: 0 0; }
+            100% { background-position: 80px 0; }
+        }
+
+        /* Main Container Card */
+        .card {
+            background-color: var(--card-bg);
+            border: 2px solid var(--primary-gold);
+            border-radius: 15px;
+            padding: 40px 30px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 10;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Icons & Accents */
+        .header-icon {
+            font-size: 3rem;
+            color: var(--primary-gold);
+            margin-bottom: 15px;
+            display: inline-block;
+            animation: spin 6s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: var(--primary-gold);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        /* The Heartfelt Wish Section */
+        .wish-section {
+            border-top: 1px solid rgba(212, 175, 55, 0.3);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 25px 0;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .wish-section p {
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            color: var(--primary-gold);
+            font-weight: 600;
+        }
+
+        /* Interactive Haircut Tax Section */
+        .tax-zone {
+            background: rgba(255,255,255,0.03);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .tax-zone h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--primary-gold);
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
+            min-height: 60px;
+            position: relative;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            border: none;
+            outline: none;
+        }
+
+        .btn-yes {
+            background-color: var(--primary-gold);
+            color: #121212;
+        }
+
+        .btn-yes:hover {
+            background-color: #f7d070;
+            transform: scale(1.05);
+        }
+
+        .btn-no {
+            background-color: #333;
+            color: #ff4d4d;
+            border: 1px solid #ff4d4d;
+        }
+
+        /* Snip visual cue */
+        .snip-effect {
+            position: absolute;
+            color: var(--primary-gold);
+            font-weight: bold;
+            pointer-events: none;
+            animation: floatUp 0.8s ease-out forwards;
+            font-size: 1.2rem;
+            z-index: 1000;
+        }
+
+        @keyframes floatUp {
+            0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -100px) scale(1.4); }
+        }
+
+        /* Confetti particle style */
+        .confetti {
+            position: fixed;
+            pointer-events: none;
+            z-index: 99;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(105vh) rotate(360deg);
+            }
+        }
+
+        /* Toast Popup Styles */
+        .toast {
+            position: fixed;
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #2e7d32;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: bottom 0.5s ease;
+            z-index: 1001;
+            font-weight: 600;
+        }
+
+        .toast.show {
+            bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="barber-pole-border"></div>
+
+    <div class="card">
+        <div class="header-icon">✂️</div>
+        <h1>Happy Birthday!</h1>
+        <p class="subtitle">To the sharpest friend and the absolute master of the shears 💈</p>
+
+        <div class="wish-section">
+            <p>Wishing an incredible birthday to a legendary friend who always knows how to keep things <span class="highlight">sharp</span>, both in life and in style!</p>
+            <p>May your lines always be crisp, your fades clean, and your scissors sharp. Beyond being an elite barber, you're a truly great friend. Here's to another year of success, laughter, and top-tier cuts!</p>
+            <p class="highlight">Have an absolute blast today! 🎉</p>
+        </div>
+
+        <div class="tax-zone" id="taxZone">
+            <h3>🎁 The "Friendship Tax" Coupon</h3>
+            <p style="font-size: 0.9rem; margin-bottom: 15px; color: var(--text-muted);">
+                Standard protocol states that because it is your birthday, I get to redeem one free haircut. Do you accept this legally binding request?
+            </p>
+            <div class="btn-container" id="btnContainer">
+                <button class="btn btn-yes" onclick="claimCut()">Absolutely, bro! ✂️</button>
+                <button class="btn btn-no" id="avoid-btn">No way, pay up! 💸</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">
+        Appointment booked! ✂️ Bring your finest clippers, buddy!
+    </div>
+
+    <script>
+        // --- 1. RUNAWAY BUTTON ---
+        const avoidBtn = document.getElementById('avoid-btn');
+        const btnContainer = document.getElementById('btnContainer');
+
+        const moveButton = () => {
+            // Get bounding coordinates of container so button doesn't fly off screen completely
+            const containerRect = btnContainer.getBoundingClientRect();
+            
+            // Generate random positions within the container's general area
+            const padding = 20;
+            const maxX = window.innerWidth - avoidBtn.clientWidth - padding;
+            const maxY = window.innerHeight - avoidBtn.clientHeight - padding;
+            
+            // Generate random absolute coordinate across the screen
+            const randomX = Math.max(padding, Math.floor(Math.random() * maxX));
+            const randomY = Math.max(padding, Math.floor(Math.random() * maxY));
+
+            avoidBtn.style.position = 'fixed';
+            avoidBtn.style.left = `${randomX}px`;
+            avoidBtn.style.top = `${randomY}px`;
+        };
+
+        avoidBtn.addEventListener('mouseover', moveButton);
+        avoidBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // Stop instant clicks on mobile
+            moveButton();
+        });
+
+        // --- 2. ACCEPT TAX FUNCTION ---
+        function claimCut() {
+            // Show toast message
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            
+            // Explode a massive batch of celebration confetti
+            for (let i = 0; i < 100; i++) {
+                createConfettiParticle();
+            }
+
+            // Lock the button in place or change layout
+            avoidBtn.style.display = 'none';
+            document.querySelector('.btn-yes').innerText = "Deal Sealed! 🤝";
+            document.querySelector('.btn-yes').disabled = true;
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 4000);
+        }
+
+        // --- 3. FLOATING "SNIP" EFFECT ON CLICK ---
+        document.addEventListener('click', (e) => {
+            // Avoid creating "snip" when clicking on a button
+            if (e.target.tagName === 'BUTTON') return;
+
+            const snip = document.createElement('div');
+            snip.className = 'snip-effect';
+            snip.innerHTML = 'Snip! ✂️';
+            snip.style.left = `${e.clientX}px`;
+            snip.style.top = `${e.clientY}px`;
+
+            document.body.appendChild(snip);
+
+            // Remove element after animation completes
+            setTimeout(() => {
+                snip.remove();
+            }, 800);
+        });
+
+        // --- 4. CONFETTI RAIN ON START ---
+        const emojis = ['🎈', '✂️', '🎉', '💈', '🎂', '✨'];
+
+        function createConfettiParticle() {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+            
+            // Randomly position, size, and set speed
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.top = '-5vh';
+            confetti.style.fontSize = Math.random() * (28 - 14) + 14 + 'px';
+            
+            const duration = Math.random() * (6 - 3) + 3; // 3 to 6 seconds fall speed
+            confetti.style.animationDuration = duration + 's';
+            confetti.style.opacity = Math.random();
+
+            document.body.appendChild(confetti);
+
+            setTimeout(() => {
+                confetti.remove();
+            }, duration * 1000);
+        }
+
+        // Generate modest initial wave
+        window.addEventListener('load', () => {
+            for (let i = 0; i < 30; i++) {
+                setTimeout(createConfettiParticle, i * 150);
+            }
+        });
+    </script>
+</body>
+</html>
